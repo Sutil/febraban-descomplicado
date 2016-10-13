@@ -79,6 +79,52 @@ public class CampoTest {
 			.comConteudo("AB").buildCampoAlfaNumerico();
 	}
 	
+	@Test
+	public void campoNumericoNulo(){
+		CampoNumerico campo = new Campo.Builder()
+		.comNome("A1")
+		.comPosicaoInicial(1)
+		.comPosicaoFinal(2)
+		.comConteudo(null).buildCampoNumerico();
+		
+		assertEquals("00", campo.getConteudoFormatado());
+	}
+	
+	@Test
+	public void campoNumericoComTamanho17(){
+		CampoNumerico campo = new Campo.Builder()
+		.comNome("A1")
+		.comPosicaoInicial(1)
+		.comPosicaoFinal(17)
+		.comConteudo("13245678901234567").buildCampoNumerico();
+		
+		assertEquals("13245678901234567", campo.getConteudoFormatado());
+	}
+	
+	@Test
+	public void campoNumericoComTamanhoCompletaZerosAEsquerda(){
+		CampoNumerico campo = new Campo.Builder()
+		.comNome("A1")
+		.comPosicaoInicial(1)
+		.comPosicaoFinal(17)
+		.comConteudo("13245").buildCampoNumerico();
+		
+		assertEquals("00000000000013245", campo.getConteudoFormatado());
+	}
+	
+	@Test
+	public void campoNumericoConteudoInvalido(){
+		exception.expect(IllegalArgumentException.class);
+		exception.expectMessage("O campo A1 é do tipo númerico e não pode receber o conteúdo ABC.");
+		
+		new Campo.Builder()
+		.comNome("A1")
+		.comPosicaoInicial(1)
+		.comPosicaoFinal(17)
+		.comConteudo("ABC").buildCampoNumerico();
+		
+	}
+	
 	
 
 }

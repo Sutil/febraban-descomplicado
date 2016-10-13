@@ -8,7 +8,17 @@ class CampoNumerico extends Campo{
 
 	@Override
 	public String getConteudoFormatado() {
-		return null;
+		return String.format("%s%s", getZeros(), conteudo);
 	}
+
+	private String getZeros() {
+		int quantidadeZeros = getTamanho() - conteudo.length();
+		if(quantidadeZeros > 0)
+			return String.format("%0"+quantidadeZeros+"d", 0);
+		
+		return "";
+	}
+	
+	
 
 }

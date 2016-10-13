@@ -59,11 +59,14 @@ abstract class Campo {
 		}
 		
 		CampoNumerico buildCampoNumerico(){
+			conteudo = conteudo != null ? conteudo : "0";
+			checkArgument(conteudo.matches("[0-9]+"), mensagemErroConteudoNumerico());
 			validaDados();
 			return new CampoNumerico(this);
 		}
 		
 		CampoAlfaNumerico buildCampoAlfaNumerico(){
+			conteudo = conteudo != null ? conteudo : "";
 			validaDados();
 			return new CampoAlfaNumerico(this);
 		}
@@ -71,16 +74,20 @@ abstract class Campo {
 		private void validaDados() {
 			checkArgument(!Strings.isNullOrEmpty(nome), "Nome do campo não foi informado");
 			checkArgument(posicaoFinal >= posicaoInicial, "Posição Final deve ser maior ou igual a posição inicial.");
-			conteudo = conteudo != null ? conteudo : "";
-			checkArgument(conteudo.length() <= posicaoFinal - posicaoInicial + 1, mensagemErro());
+			checkArgument(conteudo.length() <= posicaoFinal - posicaoInicial + 1, mensagemErroTamanho());
 		}
 		
-		private String mensagemErro(){
+		private String mensagemErroTamanho(){
 			return MessageFormat.format(
 					"O campo {0} suporte apenas conteúdo de tamanho {1}. Conteúdo informado: {2}", 
 					nome, 
 					(posicaoFinal - posicaoInicial + 1), 
 					conteudo);
+		}
+		
+		private String mensagemErroConteudoNumerico() {
+			return MessageFormat.format("O campo {0} é do tipo númerico e não pode receber o conteúdo {1}.",
+					nome, conteudo);
 		}
 	}
 
