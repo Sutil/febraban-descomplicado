@@ -44,7 +44,7 @@ public class RegistroCabecalhoRetorno extends Registro{
 	
 	private void montaCampoA2() {
 		Campo campo = new Campo.Builder()
-			.comNome("")
+			.comNome("A2")
 			.comPosicaoInicial(2)
 			.comPosicaoFinal(2)
 			.comConteudo("2").buildCampoNumerico();
@@ -127,7 +127,7 @@ public class RegistroCabecalhoRetorno extends Registro{
 	
 	private void montaCampoA11() {
 		Campo campo = new Campo.Builder()
-			.comNome("")
+			.comNome("A11")
 			.comPosicaoInicial(99)
 			.comPosicaoFinal(150)
 			.comConteudo("").buildCampoAlfaNumerico();
