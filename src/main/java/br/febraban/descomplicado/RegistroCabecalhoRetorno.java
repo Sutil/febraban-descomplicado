@@ -11,7 +11,8 @@ public class RegistroCabecalhoRetorno extends Registro{
 		montaCampos();
 	}
 	
-	public String getRegistro(){
+	@Override
+	public String getLinhaArquivo() {
 		StringBuilder builder = new StringBuilder();
 		for (Campo campo : campos) 
 			builder.append(campo.getConteudoFormatado());
