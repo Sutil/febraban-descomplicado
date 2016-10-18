@@ -19,7 +19,7 @@ public class CampoTest {
 			.comPosicaoFinal(1)
 			.comConteudo(null).buildCampoAlfaNumerico();
 		
-		assertEquals(" ", campo.getConteudoFormatado());		
+		assertEquals(" ", campo.getConteudoFormatado());
 	}
 	
 	@Test
