@@ -9,6 +9,18 @@ class TradutorCabecalho implements TradutorRegistro{
 	
 	private String registroCabecalho;
 	
+	private String codigoRegistro;
+	private String codigoRemessa;
+	private String codigoConvenio;
+	private String nomeDaEmpresa;
+	private String codigoBanco;
+	private String nomeBanco;
+	private String dataGeracao;
+	private String numeroSequencialArquivo;
+	private String versaoLayout;
+	private String identificacaoServico;
+	private String resevadoParaFuturo;
+	
 	private TradutorCabecalho(String cabecalho){
 		this.registroCabecalho = cabecalho;
 	}
@@ -20,7 +32,7 @@ class TradutorCabecalho implements TradutorRegistro{
 		return new TradutorCabecalho(cabecalho);
 	}
 	
-	public CabecalhoRetorno getCabebecalhoRetorno(){
+	public CabecalhoRetorno traduzir(){
 		return null;
 	}
 

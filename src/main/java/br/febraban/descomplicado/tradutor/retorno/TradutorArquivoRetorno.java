@@ -6,9 +6,11 @@ public class TradutorArquivoRetorno {
 		
 	}
 	
-	public PacoteDeRetorno getPacoteDeBaixa(){
-		return null;
+	public TradutorArquivoRetorno(int i, int j) {
+		// TODO Auto-generated constructor stub
 	}
+
+
 	
 	
 
