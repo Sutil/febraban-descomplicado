@@ -11,16 +11,16 @@ public class TradutorCabecalhoTest {
 	public void extracaoLinha() {
 		
 		CabecalhoRetorno cabecalho = TradutorCabecalho.newInstance(LINHA).traduzir();
-		assertEquals("", cabecalho.getCodigoRegistro());
-		assertEquals("", cabecalho.getCodigoRemessa());
-		assertEquals("", cabecalho.getCodigoConvenio());
-		assertEquals("", cabecalho.getNomeDaEmpresa());
-		assertEquals("", cabecalho.getCodigoBanco());
-		assertEquals("", cabecalho.getNomeBanco());
-		assertEquals("", cabecalho.getDataGeracao());
-		assertEquals("", cabecalho.getNumeroSequencialArquivo());
-		assertEquals("", cabecalho.getVersaoLayout());
-		assertEquals("", cabecalho.getIdentificacaoServico());
+		assertEquals("A", cabecalho.getCodigoRegistro());
+		assertEquals("2", cabecalho.getCodigoRemessa());
+		assertEquals("999999999", cabecalho.getCodigoConvenio());
+		assertEquals("NOME EMPRESA", cabecalho.getNomeDaEmpresa());
+		assertEquals("1", cabecalho.getCodigoBanco());
+		assertEquals("NOME BANCO", cabecalho.getNomeBanco());
+		assertEquals("20160101", cabecalho.getDataGeracao());
+		assertEquals("1", cabecalho.getNumeroSequencialArquivo());
+		assertEquals("4", cabecalho.getVersaoLayout());
+		assertEquals("DÉBITO AUTOMÁTICO", cabecalho.getIdentificacaoServico());
 		assertEquals("", cabecalho.getResevadoParaFuturo());
 
 	}

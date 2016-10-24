@@ -4,22 +4,23 @@ import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Strings.isNullOrEmpty;
 
 import br.febraban.descomplicado.tradutor.TradutorRegistro;
+import br.febraban.descomplicado.tradutor.retorno.CabecalhoRetorno.Builder;
 
 class TradutorCabecalho implements TradutorRegistro{
 	
 	private String registroCabecalho;
 	
-	private String codigoRegistro;
-	private String codigoRemessa;
-	private String codigoConvenio;
-	private String nomeDaEmpresa;
-	private String codigoBanco;
-	private String nomeBanco;
-	private String dataGeracao;
-	private String numeroSequencialArquivo;
-	private String versaoLayout;
-	private String identificacaoServico;
-	private String resevadoParaFuturo;
+	private TradutorCampo codigoRegistro = new TradutorCampoAlfaNumerico(1, 1);
+	private TradutorCampo codigoRemessa;
+	private TradutorCampo codigoConvenio;
+	private TradutorCampo nomeDaEmpresa;
+	private TradutorCampo codigoBanco;
+	private TradutorCampo nomeBanco;
+	private TradutorCampo dataGeracao;
+	private TradutorCampo numeroSequencialArquivo;
+	private TradutorCampo versaoLayout;
+	private TradutorCampo identificacaoServico;
+	private TradutorCampo resevadoParaFuturo;
 	
 	private TradutorCabecalho(String cabecalho){
 		this.registroCabecalho = cabecalho;
@@ -33,7 +34,10 @@ class TradutorCabecalho implements TradutorRegistro{
 	}
 	
 	public CabecalhoRetorno traduzir(){
-		return null;
+		Builder builder = new CabecalhoRetorno.Builder();
+		builder.withCodigoRegistro(codigoRegistro.traduzir(registroCabecalho));
+		
+		return builder.build();
 	}
 
 }
