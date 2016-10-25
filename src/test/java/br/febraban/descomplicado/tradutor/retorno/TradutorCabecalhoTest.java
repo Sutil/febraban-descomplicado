@@ -13,9 +13,9 @@ public class TradutorCabecalhoTest {
 		CabecalhoRetorno cabecalho = TradutorCabecalho.newInstance(LINHA).traduzir();
 		assertEquals("A", cabecalho.getCodigoRegistro());
 		assertEquals("2", cabecalho.getCodigoRemessa());
-		assertEquals("999999999", cabecalho.getCodigoConvenio());
+		assertEquals("9999999999", cabecalho.getCodigoConvenio());
 		assertEquals("NOME EMPRESA", cabecalho.getNomeDaEmpresa());
-		assertEquals("1", cabecalho.getCodigoBanco());
+		assertEquals("001", cabecalho.getCodigoBanco());
 		assertEquals("NOME BANCO", cabecalho.getNomeBanco());
 		assertEquals("20160101", cabecalho.getDataGeracao());
 		assertEquals("1", cabecalho.getNumeroSequencialArquivo());
